@@ -15,7 +15,7 @@ default_args = {
     'retry_delay'           : timedelta(minutes=5)
 }
 
-with DAG('docker_dag_sample', default_args=default_args, schedule="* * * * *", catchup=True) as dag:
+with DAG('bash_dag_sample', default_args=default_args, schedule="* * * * *", catchup=True) as dag:
     t1 = BashOperator(
         task_id='print_hello',
         bash_command='echo "hello world"'
