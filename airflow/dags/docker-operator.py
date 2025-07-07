@@ -1,7 +1,8 @@
 from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.providers.docker.operators.docker import DockerOperator
-from airflow.operators.dummy import DummyOperator
+# from airflow.operators.dummy import DummyOperator
+from airflow.operators.empty import EmptyOperator
 
 
 default_args = {
@@ -15,11 +16,11 @@ default_args = {
 }
 
 with DAG('docker_operator_dag', default_args=default_args, schedule="5 * * * *", catchup=True) as dag:
-    start_dag = DummyOperator(
+    start_dag = EmptyOperator(
         task_id='start_dag'
         )
 
-    end_dag = DummyOperator(
+    end_dag = EmptyOperator(
         task_id='end_dag'
         )        
 
