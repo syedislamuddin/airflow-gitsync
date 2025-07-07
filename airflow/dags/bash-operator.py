@@ -8,14 +8,14 @@ default_args = {
     'owner'                 : 'Mostafa Ghadimi',
     'description'           : 'Use of the DockerOperator',
     'depend_on_past'        : False,
-    'start_date'            : datetime(2023, 4, 4),
+    'start_date'            : datetime(2025, 7, 6),
     'email_on_failure'      : False,
     'email_on_retry'        : False,
     'retries'               : 1,
     'retry_delay'           : timedelta(minutes=5)
 }
 
-with DAG('docker_dag_sample', default_args=default_args, schedule_interval="5 10 * * *", catchup=False) as dag:
+with DAG('docker_dag_sample', default_args=default_args, schedule="* * * * *", catchup=True) as dag:
     t1 = BashOperator(
         task_id='print_hello',
         bash_command='echo "hello world"'
