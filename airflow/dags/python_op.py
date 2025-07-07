@@ -35,9 +35,9 @@ with DAG(
 
     first_function_execute = PythonOperator(
         task_id="first_function_execute",
-        python_callable=first_function_execute,
-        provide_context=True,
-        op_kwargs={"name":"Hello Genotools"}
+        python_callable=first_function_execute
+        # provide_context=True,
+        # op_kwargs={"name":"Hello Genotools"}
     )
 
     second_function_execute = PythonOperator(
