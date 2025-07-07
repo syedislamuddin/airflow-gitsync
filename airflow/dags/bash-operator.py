@@ -1,7 +1,7 @@
 from airflow import DAG
 from datetime import datetime, timedelta
 from airflow.operators.bash import BashOperator
-from airflow.operators.docker_operator import DockerOperator
+# from airflow.operators.docker_operator import DockerOperator
 
 
 default_args = {
