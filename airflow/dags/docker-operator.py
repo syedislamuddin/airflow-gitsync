@@ -1,7 +1,7 @@
 from airflow import DAG
 from datetime import datetime, timedelta
-from airflow.operators.bash_operator import BashOperator
-from airflow.operators.docker_operator import DockerOperator
+# from airflow.operators.bash_operator import BashOperator
+from airflow.operators.docker import DockerOperator
 
 
 default_args = {
@@ -15,7 +15,7 @@ default_args = {
     'retry_delay'           : timedelta(minutes=5)
 }
 
-with DAG('docker_dag_v2', default_args=default_args, schedule_interval="5 10 * * *", catchup=False) as dag:
+with DAG('docker_dag_exp', default_args=default_args, schedule="* * * * *", catchup=False) as dag:
     t1 = DockerOperator(
         task_id='docker_command',
         image='alpine:latest',
