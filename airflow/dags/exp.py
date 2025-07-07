@@ -12,7 +12,7 @@ with DAG(
     dag_id='exp_dag',
     default_args=default_args,
     catchup=True,                    # Disable backfilling or catching up
-    schedule_interval=None,           # No schedule, ad-hoc execution
+    schedule=None,           # No schedule, ad-hoc execution
 ) as dag:
     # Tasks are represented as operators
     hello = BashOperator(task_id="hello", bash_command="echo hello gke airflow")
