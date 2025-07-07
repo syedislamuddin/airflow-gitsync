@@ -1,15 +1,9 @@
-try:
 
-    from datetime import timedelta
-    from airflow import DAG
-    from airflow.operators.python_operator import PythonOperator
-    from datetime import datetime
-    import pandas as pd
-
-    print("All Dag modules are ok ......")
-except Exception as e:
-    print("Error  {} ".format(e))
-
+from datetime import timedelta
+from airflow import DAG
+from airflow.operators.python_operator import PythonOperator
+from datetime import datetime
+import pandas as pd
 
 def first_function_execute(**context):
     print("first_function_execute   ")
