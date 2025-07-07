@@ -24,7 +24,7 @@ def second_function_execute(**context):
 with DAG(
         dag_id="example_dag",
         # schedule_interval="@daily",
-        schedule_interval="*/5 * * * *",  # Every 5 minutes
+        schedule="*/5 * * * *",  # Every 5 minutes
         default_args={
             "owner": "airflow",
             "retries": 1,
