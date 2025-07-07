@@ -1,7 +1,8 @@
 from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.providers.docker.operators.docker import DockerOperator
-from airflow.operators.dummy_operator import DummyOperator
+from airflow.operators.dummy import DummyOperator
+
 
 default_args = {
 'owner'                 : 'airflow',
