@@ -11,7 +11,7 @@ def my_python_callable():
 with DAG(
     dag_id='python_operator_example',
     start_date=datetime(2025, 7, 2),
-    schedule_interval=None,  # This DAG will be triggered manually
+    schedule=None,  # This DAG will be triggered manually
     catchup=True,
     tags=['example'],
 ) as dag:
