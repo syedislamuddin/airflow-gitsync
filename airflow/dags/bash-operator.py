@@ -5,7 +5,7 @@ from airflow.operators.bash import BashOperator
 
 
 default_args = {
-    'owner'                 : 'Mostafa Ghadimi',
+    'owner'                 : 'k8s',
     'description'           : 'Use of the DockerOperator',
     'depend_on_past'        : False,
     'start_date'            : datetime(2025, 7, 6),
@@ -17,7 +17,7 @@ default_args = {
 
 with DAG('bash_dag_sample', default_args=default_args, schedule="* * * * *", catchup=True) as dag:
     t1 = BashOperator(
-        task_id='print_hello',
+        task_id='print_hello-bash operator',
         bash_command='echo "hello world"'
     )
 
