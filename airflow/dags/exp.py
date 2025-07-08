@@ -9,7 +9,7 @@ default_args = {
 }
 
 with DAG(
-    dag_id='exp_dag',
+    dag_id='bash_operator_exp_dag',
     default_args=default_args,
     catchup=True,                    # Disable backfilling or catching up
     schedule=None,           # No schedule, ad-hoc execution
