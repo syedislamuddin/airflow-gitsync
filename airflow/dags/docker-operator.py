@@ -6,7 +6,7 @@ from airflow.operators.empty import EmptyOperator
 
 
 default_args = {
-'owner'                 : 'airflow',
+'owner'                 : 'docker operator',
 'description'           : 'Use of the DockerOperator',
 'depend_on_past'        : False,
 'start_date'            : datetime(2025, 7, 6),
