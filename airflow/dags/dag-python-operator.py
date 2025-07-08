@@ -11,7 +11,7 @@ def done():
 
 with DAG(dag_id="bash_python_hello_world_dag",
          start_date=datetime(2025,7,7),
-         schedule_interval="@hourly",
+         schedule="@hourly",
          catchup=True) as dag:
 
     task1 = PythonOperator(
