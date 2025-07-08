@@ -15,7 +15,7 @@ default_args = {
 'retries'               : 0,
 }
 
-with DAG('docker_operator_dag', default_args=default_args, schedule="5 * * * *", catchup=True) as dag:
+with DAG('docker_operator_dag', default_args=default_args, schedule="* * * * *", catchup=True) as dag:
     start_dag = EmptyOperator(
         task_id='start_dag'
         )
