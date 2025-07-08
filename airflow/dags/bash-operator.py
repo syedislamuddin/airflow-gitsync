@@ -17,7 +17,7 @@ default_args = {
 
 with DAG('bash_dag_sample', default_args=default_args, schedule="* * * * *", catchup=True) as dag:
     t1 = BashOperator(
-        task_id='print_hello-bash operator',
+        task_id='print_hello_bash_operator',
         bash_command='echo "hello world"'
     )
 
