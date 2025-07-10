@@ -1,9 +1,12 @@
 from datetime import datetime, timedelta
 from airflow import DAG
-from airflow.operators.bash_operator import BashOperator
-from airflow.operators.docker_operator import DockerOperator
-from airflow.operators.python_operator import BranchPythonOperator
-from airflow.operators.dummy_operator import DummyOperator
+# from airflow.operators.bash_operator import BashOperator
+from airflow.operators.bash import BashOperator
+# from airflow.operators.docker_operator import DockerOperator
+from airflow.providers.docker.operators.docker import DockerOperator
+from airflow.operators.python import BranchPythonOperator
+# from airflow.operators.dummy_operator import DummyOperator
+from airflow.operators.empty import EmptyOperator
 
 default_args = {
 'owner'                 : 'airflow',
@@ -17,11 +20,11 @@ default_args = {
 }
 
 with DAG('docker_operator_demo', default_args=default_args, schedule="5 * * * *", catchup=False) as dag:
-    start_dag = DummyOperator(
+    start_dag = EmptyOperator(
         task_id='start_dag'
         )
 
-    end_dag = DummyOperator(
+    end_dag = EmptyOperator(
         task_id='end_dag'
         )        
 
