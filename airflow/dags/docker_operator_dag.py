@@ -30,7 +30,7 @@ with DAG('docker_operator_dag', default_args=default_args, schedule="* * * * *",
         api_version='auto',
         auto_remove='force',
         command="/bin/sleep 30",
-        docker_url='tcp://docker-proxy:2375',
+        docker_url='tcp://localhost:2375',
         network_mode="bridge",
         mount_tmp_dir=False # added in docker provider 2.1.0rc1
         )
