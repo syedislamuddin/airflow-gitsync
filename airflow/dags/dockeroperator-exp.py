@@ -38,7 +38,7 @@ with DAG('docker_operator_demo', default_args=default_args, schedule="5 * * * *"
         image='docker_image_task',
         container_name='task___command_sleep',
         api_version='auto',
-        auto_remove=True,
+        auto_remove='success',
         command="echo hello",
         docker_url="unix://var/run/docker.sock",
         network_mode="bridge"
@@ -49,7 +49,7 @@ with DAG('docker_operator_demo', default_args=default_args, schedule="5 * * * *"
         image='docker_image_task',
         container_name='task___command_hello',
         api_version='auto',
-        auto_remove=True,
+        auto_remove='success',
         command="/bin/sleep 40",
         docker_url="unix://var/run/docker.sock",
         network_mode="bridge"
