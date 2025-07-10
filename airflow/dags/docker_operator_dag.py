@@ -36,7 +36,7 @@ with DAG('docker_operator_dag', default_args=default_args, schedule="* * * * *",
         # mount_tmp_dir=False # added in docker provider 2.1.0rc1
             arguments=["load-data"],
             name=f"load_data",
-            task_id=f"load_data",
+            # task_id=f"load_data",
             retries=5,
             retry_delay=timedelta(minutes=5)
         
