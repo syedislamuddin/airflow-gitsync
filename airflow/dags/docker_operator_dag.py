@@ -40,19 +40,19 @@ with DAG('docker_operator_dag', default_args=default_args, schedule="* * * * *",
 
     t1 = DockerOperator(
         task_id='docker_command_sleep',
-        image="europe-west4-docker.pkg.dev/gp2-code-test-env/airflow-gtserver/test-apps/hello-app:latest",
-        # image='centos:latest',
-        # api_version='auto',
-        # auto_remove='force',
-        # command="/bin/sleep 30",
-        # docker_url='tcp://localhost:2375',
-        # network_mode="bridge",
+        # image="europe-west4-docker.pkg.dev/gp2-code-test-env/airflow-gtserver/test-apps/hello-app:latest",
+        image='centos:latest',
+        api_version='auto',
+        auto_remove='force',
+        command="/bin/sleep 30",
+        docker_url="unix://var/run/docker.sock",
+        network_mode="bridge",
         # mount_tmp_dir=False # added in docker provider 2.1.0rc1
-            arguments=["load-data"],
-            name=f"load_data",
+            # arguments=["load-data"],
+            # name=f"load_data",
             # task_id=f"load_data",
-            retries=5,
-            retry_delay=timedelta(minutes=5)
+            # retries=5,
+            # retry_delay=timedelta(minutes=5)
         
         )
 
