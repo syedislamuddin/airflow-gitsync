@@ -5,15 +5,29 @@ from airflow.providers.docker.operators.docker import DockerOperator
 from airflow.operators.empty import EmptyOperator
 
 
+# default_args = {
+# 'owner'                 : 'docker operator',
+# 'description'           : 'Use of the DockerOperator',
+# 'depend_on_past'        : False,
+# 'start_date'            : datetime(2025, 7, 6),
+# 'email_on_failure'      : False,
+# 'email_on_retry'        : False,
+# 'retries'               : 0,
+# }
+
 default_args = {
-'owner'                 : 'docker operator',
-'description'           : 'Use of the DockerOperator',
-'depend_on_past'        : False,
-'start_date'            : datetime(2025, 7, 6),
-'email_on_failure'      : False,
-'email_on_retry'        : False,
-'retries'               : 0,
+    'owner': 'airflow',
+    'depends_on_past': False,
+    'start_date': datetime(2020, 1, 1),
+    'retries': 7,
+    'retry_delay': timedelta(minutes=5),
+    # KubernetesPodOperator Defaults
+    'namespace': 'kns-airflow-gtserver',
+    'in_cluster': True,  # if set to true, will look in the cluster, if false, looks for file
+    'get_logs': True,
+    'is_delete_operator_pod': True
 }
+
 
 with DAG('docker_operator_dag', default_args=default_args, schedule="* * * * *", catchup=True) as dag:
     start_dag = EmptyOperator(
