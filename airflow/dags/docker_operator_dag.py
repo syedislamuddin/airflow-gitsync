@@ -41,7 +41,7 @@ with DAG('docker_operator_dag', default_args=default_args, schedule="* * * * *",
     t1 = DockerOperator(
         task_id='docker_command_sleep',
         # image="europe-west4-docker.pkg.dev/gp2-code-test-env/airflow-gtserver/test-apps/hello-app:latest",
-        image='centos:latest',
+        image='centos:7',
         api_version='auto',
         auto_remove='force',
         command="/bin/sleep 30",
