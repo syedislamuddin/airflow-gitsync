@@ -18,6 +18,6 @@ default_args = {
 with DAG('bash_dag_sample', default_args=default_args, schedule="* * * * *", catchup=True) as dag:
   extract_data = BashOperator(
       task_id="extract_data",
-      bash_command="script.sh",
+      bash_command="scripts/script.sh",
   )
 extract_data
