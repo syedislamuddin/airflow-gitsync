@@ -1,7 +1,7 @@
 ### Code 1
 
 from airflow import models
-from airflow.utils.dates import days_ago
+# from airflow.utils.dates import days_ago
 from airflow.operators.bash import BashOperator
 from airflow.operators.python import BranchPythonOperator, PythonOperator
 from airflow.operators.empty import EmptyOperator
@@ -13,7 +13,7 @@ params = {
   'study': ''
 }
 
-with models.DAG(DAG_NAME, start_date=days_ago(1), schedule_interval=None,
+with models.DAG(DAG_NAME, start_date=datetime(2025, 7, 6), schedule_interval=None,
 params=params) as dag:
 
   bash_task = BashOperator(
