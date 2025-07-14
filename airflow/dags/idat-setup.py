@@ -13,7 +13,7 @@ params = {
   'study': ''
 }
 
-with models.DAG(DAG_NAME, start_date=datetime(2025, 7, 6), schedule_interval=None,
+with models.DAG(DAG_NAME, start_date=datetime(2025, 7, 6), schedule=None,
 params=params) as dag:
 
   bash_task = BashOperator(
